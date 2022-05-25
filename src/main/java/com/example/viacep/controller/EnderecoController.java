@@ -35,4 +35,11 @@ public class EnderecoController {
         List<String> ceps = enderecoService.listaCep();
         return ResponseEntity.ok().body(ceps);
     }
+
+    @GetMapping("cepdb/{cep}")
+    public Endereco findCepDB(@PathVariable String cep) throws Exception {
+
+        Endereco endereco = enderecoService.findByCep(cep);
+        return ResponseEntity.ok().body(endereco).getBody();
+    }
 }

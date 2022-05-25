@@ -56,4 +56,7 @@ public class EnderecoService {
         return enderecoRepository.findCep();
     }
 
+    public Endereco findByCep(String cep) throws Exception {
+        return enderecoRepository.getByCep(cep).orElseThrow(() -> new Exception("CEP not found"));
+    }
 }

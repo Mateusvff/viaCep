@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public class EnderecoService {
 
@@ -45,4 +47,13 @@ public class EnderecoService {
             throw new Exception(e.getMessage());
         }
     }
+
+    public List<Endereco> listaEndereco(){
+        return enderecoRepository.findAll();  //retorna uma lista de todos os enderecos no banco de dados
+    }
+
+    public List<String> listaCep(){
+        return enderecoRepository.findCep();
+    }
+
 }
